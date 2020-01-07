@@ -15,7 +15,7 @@ numpy==1.18.1
 opencv-python==4.1.2.30
 pandas==0.25.3
 Pillow==7.0.0
-pylint==2.3.1
+pylint==2.4.4
 pynput==1.6.4
 pyparsing==2.3.1
 pyperclip==1.7.0
