@@ -2,7 +2,7 @@ astroid==2.2.5
 certifi==2019.11.28
 chardet==3.0.4
 Click==7.0
-colorama==0.4.1
+colorama==0.4.3
 cycler==0.10.0
 Flask==1.1.1
 Flask-Dropzone==1.5.4
