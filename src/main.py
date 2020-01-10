@@ -25,7 +25,9 @@ def complete():
 
     filename = os.listdir(app.config["UPLOADED_PATH"])[0]
     latex = util.convertPdf(app.config["UPLOADED_PATH"] + "\\" + filename)
-    texFile = DIR + "util/" + filename.split("\\")[-1].split(".")[0] + ".tex"
+    texFile = (DIR + "util/" + filename.split("\\")[-1].split(".")[0] + ".tex").replace(
+        "\\", "/"
+    )
     a = open(texFile, "r")
     tex = a.read()
     a.close()

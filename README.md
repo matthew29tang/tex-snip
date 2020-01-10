@@ -1,5 +1,5 @@
 # LaTeX OCR
-[![Version](https://img.shields.io/badge/Version-1.1.0-1f425f.svg)](https://shields.io/)
+[![Version](https://img.shields.io/badge/Version-1.1.1-1f425f.svg)](https://shields.io/)
 [![Python](https://img.shields.io/badge/Python-3.6-1abc9c.svg)](https://shields.io/)
 [![Updates](https://pyup.io/repos/github/matthew29tang/img-latex/shield.svg)](https://pyup.io/repos/github/matthew29tang/img-latex/)
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
@@ -7,6 +7,8 @@
 
 ## PDF to TeX
 Flask server to convert PDF to TeX files. Limited to <5MB files.
+
+Online usage: `https://tex-snip.herokuapp.com/`
 
 Offline usage (requires API credentials): `python src/main.py`
 

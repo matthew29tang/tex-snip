@@ -9,19 +9,25 @@ DIR = os.path.dirname(os.path.abspath(__file__)) + "\\"
 
 
 def convertPdf(pdf):
-    pages = pdfIm.convert_from_path(pdf)
+    texFile = DIR + pdf.split("\\")[-1].split(".")[0] + ".tex"
+    a = open(texFile.replace("\\", "/"), "w")
+
+    pages = pdfIm.convert_from_path(pdf.replace("\\", "/"))
     totalPieces = []
     for i in range(len(pages)):
         # print(DIR + str(i) + ".jpg")
         pages[i].save(DIR + str(i) + ".jpg", "JPEG")
         totalPieces += _findBoxes(str(i))
     print(totalPieces)
+    if len(totalPieces) > 50:
+        a.write("Too many pieces - try splitting the file up")
+        return "Too many pieces"
     latex = [detect.ocrServer(piece) for piece in totalPieces]
     text = "\n\n".join(latex)
     text = text.replace("\n", "\n\n")
     text = text.replace("\\(", "$")
     text = text.replace("\\)", "$")
-    a = open(DIR + pdf.split("\\")[-1].split(".")[0] + ".tex", "w")
+
     a.write(text)
     a.close()
     return text
@@ -48,7 +54,7 @@ def _findBoxes(filename):
             part = image[y : y + h, x : x + w]
             pieceName = (
                 DIR + "pieces/" + filename + "_" + str(len(cnts) - 1 - i) + ".jpg"
-            )
+            ).replace("\\", "/")
             cv2.imwrite(pieceName, part)
             pieces.append(pieceName)
 

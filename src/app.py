@@ -3,6 +3,10 @@ from flask_dropzone import Dropzone
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+if not os.path.exists("./uploads"):
+    os.makedirs("./uploads")
+if not os.path.exists("./util/pieces"):
+    os.makedirs("./util/pieces")
 
 app = Flask(__name__)
 app.secret_key = "1337secret"
