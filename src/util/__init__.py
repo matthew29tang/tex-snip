@@ -1,3 +1,4 @@
-from .detect import run
+from .detect import ocrClient, run
+from .pdfconvert import convertPdf
 
-__all__ = [run]
+__all__ = [ocrClient, convertPdf, run]

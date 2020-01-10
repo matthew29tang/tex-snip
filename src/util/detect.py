@@ -5,10 +5,18 @@ from . import mathpix
 from . import snipping_tool as snipper
 
 
-def ocr():
+def ocrClient():
+    return _ocr("./capture.png", True)
+
+
+def ocrServer(filename):
+    return _ocr(filename, False)
+
+
+def _ocr(filename, isClient):
     r = mathpix.latex(
         {
-            "src": mathpix.image_uri("./capture.png"),
+            "src": mathpix.image_uri(filename),
             "ocr": ["math", "text"],
             "formats": ["text"],
             "format_options": {
@@ -17,26 +25,32 @@ def ocr():
                     "math_delims": ["$", "$"],
                 }
             },
-        }
+        },
+        isClient,
     )
     # print(json.dumps(r, indent=4, sort_keys=True))
-    if "text" not in r:
-        print("No math found")
-        pyperclip.copy("")
+    if isClient:
+        if "text" not in r:
+            print("No math found")
+            pyperclip.copy("")
+        else:
+            print(r["text"])
+            print("\n")
+            pyperclip.copy(r["text"])
     else:
-        print(r["text"])
-        print("\n")
-        pyperclip.copy(r["text"])
+        print("Success: " + filename)
 
     try:
-        os.remove("./capture.png")
+        os.remove(filename)
+        return r["text"]
     except:
-        pass
+        print("Error removing file.")
+        return "Error"
 
 
 def run():
     app = QtWidgets.QApplication(sys.argv)
-    window = snipper.MyWidget(ocr)
+    window = snipper.MyWidget(ocrClient)
     window.show()
     app.aboutToQuit.connect(app.deleteLater)
     app.exec_()
