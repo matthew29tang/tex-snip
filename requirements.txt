@@ -28,7 +28,7 @@ pyparsing==2.4.6
 pyperclip==1.7.0
 PyQt5==5.14.1
 PyQt5-sip==12.7.0
-pytz==2019.3
+pytz==2020.1
 requests==2.22.0
 six==1.14.0
 sympy==1.5.1
