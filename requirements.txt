@@ -18,7 +18,7 @@ mccabe==0.6.1
 mpmath==1.1.0
 nose==1.3.7
 numpy==1.18.1
-opencv-python==4.1.2.30
+opencv-python==4.3.0.38
 pandas==0.25.3
 pdf2image==1.11.0
 Pillow==7.0.0
