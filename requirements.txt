@@ -24,7 +24,7 @@ pdf2image==1.11.0
 Pillow==7.0.0
 pylint==2.4.4
 pynput==1.6.4
-pyparsing==2.4.6
+pyparsing==3.0.4
 pyperclip==1.7.0
 PyQt5==5.14.1
 PyQt5-sip==12.7.0
