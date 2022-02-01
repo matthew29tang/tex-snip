@@ -27,7 +27,7 @@ pynput==1.6.4
 pyparsing==2.4.6
 pyperclip==1.7.0
 PyQt5==5.14.1
-PyQt5-sip==12.7.0
+PyQt5-sip==12.9.1
 pytz==2019.3
 requests==2.22.0
 six==1.14.0
